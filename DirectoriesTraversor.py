@@ -8,11 +8,15 @@ from datetime import date
 # for printing arguments help and available options for users
 import optparse
 
+# for coloring the terminal
+from termcolor import cprint
+
 
 '''
 Description: This tool is part of my Python digital forensics toolset. It travers directories and specifies
 file properties including permissions, creation/Access/Modified times
 Requirements: Install datetime by pip install datetime
+              Install termcolor by pip install termcolor
        
 Usage: python DirectoriesTraversor.py -p .
 
@@ -59,10 +63,10 @@ def scan_directory(directory):
          # Variable that stores how to show the CurrentItem if Directory append / at the end
          if(os.path.isdir(CurrentItem)):
             CurrentItemPrinted = (CurrentItem + "/").strip()
-            print('{:<40s}{:<15s}{:<10s}{:<15s}{:<15s}{:<15s}'.format(CurrentItemPrinted, stat.filemode(Permissions), str(size), str(AccessedTime), str(ModifiedTime), str(CreatedTime)))
+            cprint('{:<40s}{:<15s}{:<10s}{:<15s}{:<15s}{:<15s}'.format(CurrentItemPrinted, stat.filemode(Permissions), str(size), str(AccessedTime), str(ModifiedTime), str(CreatedTime)))
 
          if(os.path.isfile(CurrentItem)):
-            print('{:<40s}{:<15s}{:<10s}{:<15s}{:<15s}{:<15s}'.format(CurrentItem, stat.filemode(Permissions), str(size), str(AccessedTime), str(ModifiedTime), str(CreatedTime)))
+            cprint('{:<40s}{:<15s}{:<10s}{:<15s}{:<15s}{:<15s}'.format(CurrentItem, stat.filemode(Permissions), str(size), str(AccessedTime), str(ModifiedTime), str(CreatedTime)),'green')
          
 
 main()
