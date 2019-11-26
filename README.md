@@ -86,7 +86,7 @@ or
 ```python hasher.py file.txt --compare file.sha1```
 
 ### Future Improvements
-* No ideas at the moment
+* Make the tool compare two target files and see if their hashes match. The current version of the tool has the capability to compare a target file with a hash file (.sha1) or with a hash hexadecimal string given in the terminal.
 
 # Packaging all the digital forensics tools in this repository as executables
 It is recommended to package all the forensics tools as executables. It does not make sense to install python modules on the target machine. If you actually do this: the resulting digital evidence is considered ***tampered with thus inadmissible to courts.*** 
