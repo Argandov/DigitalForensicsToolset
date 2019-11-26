@@ -12,9 +12,11 @@ You need to make sure you install **all** the python modules required by the too
 
 ### Usage
 To list the current directory's files & sub-directories, you can say:
+
 ```python DirectoriesTraversor.py -p .```
 
 or for a certain path:
+
 ```python DirectoriesTraversor.py -p C:\```
 
 ### Future Improvements
@@ -27,6 +29,7 @@ It enumerates all the MS Windows Registry keys under a certain registry key (i.e
 
 ### Requirements
 You need to make sure you install **all** the python modules required by the tool. Per example to install datetime:
+
 ``` pip install datetime```
 
 ### Usage
@@ -39,6 +42,7 @@ You need to make sure you install **all** the python modules required by the too
 ```python WindowsRegistryScanner.py -q 'SOFTWARE\Microsoft\Windows\CurrentVersion\Run' Maliciouskey```
 
 **List of common MS Windows autorun locations to look for any malicious activity**
+
 ```
 Software\Microsoft\Windows\CurrentVersion\Runonce
 Software\Microsoft\Windows\CurrentVersion\policies\Explorer\Run
@@ -55,6 +59,7 @@ It calculates the sha1 hash value of any given file. It then prints the hash and
 
 ### Requirements
 You need to make sure you install **all** the python modules required by the tool. Per example to install colorterm:
+
 ``` pip install colorterm```
 
 ### Usage
@@ -93,9 +98,11 @@ You need the Python module pyinstaller. You can install it via pip or pip3 or vi
 A program called pyinstaller is installed in the Python directory. On Windows, it would be the executable: pyinstaller.exe
 
 To create an executable of your tool, you can issue the following command. **PS: change "forensics_tool_name.py" with the corresponding tool name**
+
 ```
 pyinstaller forensics_tool_name.py --onefile
 ```
+
 --onefile means pyinstaller will package all the python files into a single executable. This is usually important especially when there are many python files. On Windows per example, your .exe file will be found in the dist folder.
 
 ## Create a Windows .exe executable out of a python project from a Linux OS/Mac OS
@@ -112,15 +119,19 @@ cd ~/.wine/drive_c/Python27/
 
 wine python.exe -m pip install pyinstaller
 ```
+
 After the installation of the module completes, you will find the pyinstalller.exe in the Scripts directory. To install pynput - please  issue the following commands: **NB:** why? as I have mentioned before, you need to do that since even if this module is installed on the Linux OS level, the Windows Python interpreter of wine can not access OS-level Python modules
+
 ```
 wine python.exe -m pip install pynput
 ```
 
 You can then package your tool into a single executable:
+
 ```
 wine /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe forensics_tool_name.py --onefile
 ```
+
 The binary will be stored in the dist folder.
 
 ## Creating a Mac OS executable
@@ -129,7 +140,9 @@ If you are on a Mac OS, the process is similar to installing 'pyinstaller'. Firs
 ```
 sudo pip install pyinstaller
 ```
+
 Then run pyinstaller on the python file
+
 ```
 pyinstaller forensics_tool_name.py --onefile --noconsole
 ```
@@ -142,6 +155,7 @@ The process is exactly similar. In Linux, resulting binaries should be run from 
 # Digital evidence chain of custody
 * Do not forget to follow the correct guidelines for digital evidence **chain of custody** so that your evidence is admissible in legal courts
 * Do not forget to create hashes for all your images, files, memory dumps etc...
+* Always be an impartial and a very meticulous examiner whether you are working for the prosecution or for the defendant team
 
 # License
 This program is licensed under MIT License - you are free to distribute, change, enhance and include any of the code of this application in your tools. I only expect adequate attribution and citation of this work. The attribution should include the title of the program, the author (me!) and the site or the document where the program is taken from.
